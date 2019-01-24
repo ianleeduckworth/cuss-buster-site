@@ -35,8 +35,11 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
+        <img className="icon" src={require("../images/soap.png")} />
+      </li>
+      <li>
         <Link className="home-text" to="/">
-          CussBuster
+          Cussbuster
         </Link>
       </li>
     </ul>

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Utility from '../extensions/Utility';
-import Validation from '../extensions/Validation';
+import React, { Component } from "react";
+import Utility from "../extensions/Utility";
+import Validation from "../extensions/Validation";
 
 const _passwordLength = 8;
 let _typingTimeout = null;
@@ -10,7 +10,7 @@ class PasswordInput extends Component {
     super(props);
     this.state = {
       passwordLabelText: null,
-      passwordLabelClass: null,
+      passwordStatusClass: null,
       password: null
     };
   }
@@ -24,7 +24,7 @@ class PasswordInput extends Component {
         if (!password) {
           this.setState({
             passwordLabelText: "",
-            passwordLabelClass: ""
+            passwordStatusClass: ""
           });
           return;
         }
@@ -37,7 +37,7 @@ class PasswordInput extends Component {
               "Password must be at least " +
               _passwordLength +
               " characters long",
-            passwordLabelClass: "password-error"
+              passwordStatusClass: "password-error"
           });
           return;
         }
@@ -46,7 +46,7 @@ class PasswordInput extends Component {
           this.setState({
             passwordLabelText:
               "Weak: password should have at least 1 number and 1 special character",
-            passwordLabelClass: "password-weak"
+              passwordStatusClass: "password-weak"
           });
           return;
         }
@@ -55,7 +55,7 @@ class PasswordInput extends Component {
           this.setState({
             passwordLabelText:
               "Moderate: password should have at least 1 number",
-            passwordLabelClass: "password-moderate"
+              passwordStatusClass: "password-moderate"
           });
           return;
         }
@@ -64,14 +64,14 @@ class PasswordInput extends Component {
           this.setState({
             passwordLabelText:
               "Moderate: password should contain at least 1 special character",
-            passwordLabelClass: "password-moderate"
+              passwordStatusClass: "password-moderate"
           });
           return;
         }
 
         this.setState({
           passwordLabelText: "Excellent password choice!",
-          passwordLabelClass: "password-ok"
+          passwordStatusClass: "password-ok"
         });
       },
       _typingTimeout,
@@ -128,7 +128,8 @@ class PasswordInput extends Component {
           onChange={this.handlePasswordChange}
         />
         <div className="password-label">
-          <label className={"password-label " + this.state.passwordLabelClass}>
+          <div className={"password-indicator " + this.state.passwordStatusClass + " " + (!this.state.passwordLabelText ? "password-indicator-hidden" : "")} />
+          <label className="password-label">
             {this.state.passwordLabelText}
           </label>
         </div>

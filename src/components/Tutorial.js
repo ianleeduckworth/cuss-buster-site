@@ -5,13 +5,14 @@ import { NavLink } from "react-router-dom";
 const Tutorial = () => {
   return (
     <div>
-      <h2>How to Use CussBuster</h2>
-      <Note>
-        This tutorial contains profanity. If you are offended by profanity, then
-        this API is probably not for you...
+      <h2>How to Use Cussbuster</h2>
+      <Note symbol="🤬" headerText="Warning">
+        This documentation contains profanity. Note that all offensive words in
+        the documentation are done in the name of providing real examples and
+        are not meant to hurt or offend anyone.
       </Note>
       <p>
-        CussBuster is an API that is called programatically. There is only one
+        Cussbuster is an API that is called programatically. There is only one
         endpoint which takes in a text string in the body of the request and
         your API token in the URL itself. For this tutorial, we are going to be
         using Postman to make API calls. If you do not have Postman, you can

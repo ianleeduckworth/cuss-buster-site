@@ -31,17 +31,18 @@ const Docs = () => {
       </Note>
       <h3>POST /v1/[YOUR API KEY]</h3>
       <h4 className="italic">
-        Sends a string of text to CussBuster and gets back any naughty words
+        Sends a string of text to Cussbuster and gets back an array of any bad
+        words contained within the string passed in.
       </h4>
       <h4>Headers</h4>
       <table>
         <tbody>
           <tr>
-            <th>Name</th>
+            <th className="left-column">Name</th>
             <th>Description</th>
           </tr>
-          <tr>
-            <td>Content-Type</td>
+          <tr className="rangus">
+            <td className="left-column">Content-Type</td>
             <td>Must be set to `application-json`</td>
           </tr>
         </tbody>
@@ -57,33 +58,33 @@ const Docs = () => {
       <table>
         <tbody>
           <tr>
-            <th>Name</th>
+            <th className="left-column">Name</th>
             <th>Description</th>
           </tr>
-          <tr>
-            <td>word</td>
+          <tr className="rangus">
+            <td className="left-column">word</td>
             <td>The offending word</td>
           </tr>
-          <tr>
-            <td>wordTypeId</td>
+          <tr className="rangus">
+            <td className="left-column">wordTypeId</td>
             <td>ID correlating to the reason why the word is offensive</td>
           </tr>
-          <tr>
-            <td>wordType</td>
+          <tr className="rangus">
+            <td className="left-column">wordType</td>
             <td>
               Human readable text describing the reason why the word is
               offensive
             </td>
           </tr>
-          <tr>
-            <td>severity</td>
+          <tr className="rangus">
+            <td className="left-column">severity</td>
             <td>
               How bad the word is (in our opinion) on a scale of 1-10 where 10
               is the most severe
             </td>
           </tr>
-          <tr>
-            <td>occurances</td>
+          <tr className="rangus">
+            <td className="left-column">occurances</td>
             <td>
               Number of times the offending word occurred in the string of text
               passed in
@@ -93,37 +94,39 @@ const Docs = () => {
       </table>
       <p>WordType Mapping</p>
       <table>
-        <tr className="small-row">
-          <th>ID</th>
-          <th>Name</th>
-          <th>Description</th>
-        </tr>
-        <tr className="small-row">
-          <td>1</td>
-          <td>Vulgarity</td>
-          <td>
-            The word is commonly viewed as crass or vulgar. This includes (but
-            is not limited to) words like fuck, shit, and damn
-          </td>
-        </tr>
-        <tr className="small-row">
-          <td>2</td>
-          <td>Racial Slur</td>
-          <td>
-            The word is a racial slur. This includes (but is not limited to)
-            words like kike, spic, and nigger
-          </td>
-        </tr>
-        <tr className="small-row">
-          <td>3</td>
-          <td>Sexism</td>
-          <td>
-            The word is commonly viewed as sexist. This includes (but is not
-            limited to) words like bitch and pussy
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+          <tr className="rangus">
+            <td className="id-column">1</td>
+            <td className="middle-column">Vulgarity</td>
+            <td>
+              The word is commonly viewed as crass or vulgar. This includes (but
+              is not limited to) words like fuck, shit, and damn
+            </td>
+          </tr>
+          <tr className="rangus">
+            <td className="id-column">2</td>
+            <td className="middle-column">Racial Slur</td>
+            <td>
+              The word is a racial slur. This includes (but is not limited to)
+              words like kike, spic, and nigger
+            </td>
+          </tr>
+          <tr className="rangus">
+            <td className="id-column">3</td>
+            <td className="middle-column">Sexism</td>
+            <td>
+              The word is commonly viewed as sexist. This includes (but is not
+              limited to) words like bitch and pussy
+            </td>
+          </tr>
+        </tbody>
       </table>
-      <p>Example (schema with sample data):</p>
+      <p>Example return value (schema with sample data):</p>
       <ReactJson
         enableClipboard={false}
         onEdit={false}

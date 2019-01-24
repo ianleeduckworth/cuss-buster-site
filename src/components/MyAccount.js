@@ -56,6 +56,7 @@ class MyAccount extends Component {
 
   onSignOut = e => {
     this.props.deleteAccountInfo();
+    localStorage.removeItem('accountInfo');
     this.setState({
       accountInfo: null,
       signinInfo: {
@@ -84,7 +85,7 @@ class MyAccount extends Component {
           <div hidden={!this.state.accountInfo}>
             <h3>My Account</h3>
             <AccountInfo accountInfo={this.state.accountInfo} />
-            <a onClick={this.onSignOut} className="italic standard">
+            <a onClick={this.onSignOut}>
               Sign Out
             </a>
           </div>

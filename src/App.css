@@ -1,5 +1,10 @@
 .App {
   text-align: left;
+  height: 100%;
+}
+
+html {
+  background-color: #fcfcfc;
 }
 
 /* Default font */
@@ -7,21 +12,39 @@ h1, h2, h3, h4, h5, p, div, table, th, td, table, a, li {
   font-family: Lato;
 }
 
+a {
+  text-decoration: none;
+  color: #1974d2;
+  cursor: pointer;
+  font-weight: bold;
+  transition: .3s;
+}
+
+a:hover {
+  text-decoration: underline;
+  transition: .3s;
+  transition-timing-function: ease;
+}
+
 ul.topnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #c4ffe9;
+  background-color: #ffffff;
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 2px 3px 18px #e3e9f2;
+  border-bottom: solid 1px #010b13;
   z-index: 99999 !important; /* try to ensure that this is the topmost element */
 }
 
 div.padding-bottom {
   margin-bottom: 16px;
+}
+
+div.margin-bottom {
+  margin-bottom: 8px;
 }
 
 li.topnav {
@@ -30,9 +53,8 @@ li.topnav {
 
 li.home-text {
   display: block;
-  color: #565656;
   text-align: center;
-  padding: 13px 30px;
+  padding: 13px 20px;
   float: left;
   text-decoration: none;
   font-size: 14pt;
@@ -40,9 +62,9 @@ li.home-text {
 
 a.home-text {
   display: block;
-  color: #565656;
+  color: #010b13;
   text-align: center;
-  padding: 12px 30px;
+  padding: 12px 20px;
   float: left;
   text-decoration: none;
   font-size: 14pt;
@@ -50,19 +72,22 @@ a.home-text {
 
 li.topnav a.topnav {
   display: block;
-  color: #565656;
+  color: #010b13;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  transition: .3s;
 }
 
 li.topnav a.topnav:hover {
-  background-color: #bfbfbf;
-  color: white;
+  border-bottom: 4px solid #c9eef4;
+  color: #010b13;
+  transition-timing-function: ease;
+  transition: .3s;
 }
 
-li.topnav-active {
-  background-color: #b39ddb;
+a.active {
+  border-bottom: 4px solid #ff9bb2;
 }
 
 /* The switch - the box around the slider */
@@ -77,16 +102,17 @@ div.main-info {
   padding: 1px 140px;
   margin-top: 48px;
   margin-bottom: 48px;
-  overflow: auto;
 }
 
 div.border {
-  margin-top: 14px;
+  margin-top: 60px;
   padding-left: 35px;
   padding-right: 35px;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #656070;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
 }
 
 h5.tool-tip {
@@ -109,10 +135,6 @@ div.tool-tip {
   padding-left: 3px;
   vertical-align: middle;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
-}
-
-a.active {
-  background-color: #b39ddb;
 }
 
 img.large {
@@ -145,6 +167,14 @@ img.small {
   box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
 }
 
+img.icon {
+  float: left;
+  height: 40px;
+  width: 55px;
+  margin-left: 16px;
+  margin-top: 4px;
+}
+
 div.caption {
   padding-top: 10px;
   font-style: italic;
@@ -160,21 +190,30 @@ input.form-input, div.form-input, select.form-input {
   box-sizing: border-box;
 }
 
-button.signup-button {
-  background-color: #749ce0;
-  border-radius: 4px;
+div.credit-card-input {
   border: none;
-  color: #e9e9e9;
+  padding-left: 0px;
+  padding-top: 0px;
+}
+
+button.signup-button {
+  border: 3px solid #749ce0;
+  border-radius: 16px;
+  background-color: #ffffff;
+  color: #010b13;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   width: 150px;
   height: 35px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+  transition: .3s;
 }
 
 button.signup-button:hover:enabled {
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  /* box-shadow: 5px 5px 10px rgba(0,0,0,0.5); */
+  background-color: #749ce0;
+  color: #ffffff;
+  transition: 0.3s;
 }
 
 button.signup-button:active:enabled {
@@ -193,15 +232,22 @@ h4.italic, a.italic {
   font-style: italic;
 }
 
-a.standard {
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 div.pricing-tier-label {
   padding-top: 5px;
   padding-bottom: 15px;
+}
+
+div.password-indicator {
+  display: inline-block;
+  width: 30px;
+  height: 13px;
+  margin-right: 10px;
+  border-radius: 7px;
+  border: 1px solid #9c9c9c;
+}
+
+div.password-indicator-hidden {
+  border: none;
 }
 
 div.password-label {
@@ -212,24 +258,24 @@ input.invalid {
   border-color: #FF4136;
 }
 
-label.password-error {
-  color: #FF4136;
+div.password-error {
+  background-color: #FF4136;
 }
 
-label.password-weak {
-  color: #FF851B;
+div.password-weak {
+  background-color: #fc9303;
 }
 
-label.password-moderate {
-  color: #FFDC00;
+div.password-moderate {
+  background-color: #fff600;
 }
 
-label.password-ok {
-  color: #2ECC40;
+div.password-ok {
+  background-color: #2ECC40;
 }
 
 td.left-column {
-  width:160px;
+  width:175px;
 }
 
 table, th, td {
@@ -240,8 +286,20 @@ tr.row {
   height: 34px;
 }
 
-tr.small-row {
-  height: 20px;
+tr.rangus:nth-child(odd){
+  background-color: #efefef;
+}
+
+tr.rangus:nth-child(even){
+  background-color: #f9f9f9;
+}
+
+td.id-column {
+  width: 100px;
+}
+
+td.middle-column {
+  width: 125px;
 }
 
 div.slider {

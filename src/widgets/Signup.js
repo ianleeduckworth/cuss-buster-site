@@ -127,7 +127,7 @@ class Signup extends Component {
     }
 
     //at this point the user has selected a paid account.  Validate all fields
-    return !Utility.areAllPropsTruthy(this.state);
+    return !Utility.areAllPropsTruthy(this.state, ["addressLine2"]);
   };
 
   renderPayFields = () => {
@@ -200,7 +200,7 @@ class Signup extends Component {
 
           <label htmlFor="creditCardNumber">Credit Card Number</label>
           <CreditCardInput
-            containerClassName="form-input"
+            containerClassName="form-input credit-card-input"
             cardNumberInputProps={{
               onChange: this.handleCreditCardNumberChange
             }}
@@ -216,7 +216,8 @@ class Signup extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="pricingTier">Account Type</label>
+          <label htmlFor="pricingTier" className="margin-bottom">Account Type</label>
+          <div className="margin-bottom"></div>
           <Select
             value={pricingTiers.filter(
               x => x.value === this.state.pricingTierId

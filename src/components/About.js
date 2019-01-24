@@ -6,7 +6,7 @@ const About = () => {
       <h2>Privacy Policy</h2>
       <h3>What information we collect</h3>
       <p>
-        CussBuster stores all personally identifiable information (including
+        Cussbuster stores all personally identifiable information (including
         credit card data, email, and password) in a safe and secure fashion. We
         do not store any data that is passed into the API in any format.
         Analytics regarding which flagged words were hit are recorded, but no
@@ -16,9 +16,9 @@ const About = () => {
       </p>
       <h3>What we do with your information</h3>
       <p>
-        Your personally identifiable information never leaves CussBuster's
+        Your personally identifiable information never leaves Cussbuster's
         immediate ecosystem. The personally identifiable data that is collected
-        is used for billing purposes only. CussBuster will never sell,
+        is used for billing purposes only. Cussbuster will never sell,
         distribute, or make available any personally identifiable information
         for any reason (except in the case that we are required to by law). The
         only data that we make available in any wy is statistical data regarding
@@ -27,7 +27,7 @@ const About = () => {
       </p>
       <h3>When we will contact you</h3>
       <p>
-        CussBuster will only contact you via email when there is an issue that
+        Cussbuster will only contact you via email when there is an issue that
         needs your response. Some examples of when we might contact you include
         (but are not limited to) issues with billing, when you're starting to
         run low on calls for the month, and when your account has been locked
