@@ -27,7 +27,7 @@ const Docs = () => {
         This documentation contains profanity as well as sexist language and
         racial slurs. Note that all offensive words in the documentation are
         done in the name of providing real examples and are not meant to hurt or
-        offend anyone
+        offend anyone.
       </Note>
       <h3>POST /v1/[YOUR API KEY]</h3>
       <h4 className="italic">
@@ -41,7 +41,7 @@ const Docs = () => {
             <th className="left-column">Name</th>
             <th>Description</th>
           </tr>
-          <tr className="rangus">
+          <tr className="docs-row">
             <td className="left-column">Content-Type</td>
             <td>Must be set to `application-json`</td>
           </tr>
@@ -61,31 +61,33 @@ const Docs = () => {
             <th className="left-column">Name</th>
             <th>Description</th>
           </tr>
-          <tr className="rangus">
+          <tr className="docs-row">
             <td className="left-column">word</td>
-            <td>The offending word</td>
+            <td className="info-column">The offending word</td>
           </tr>
-          <tr className="rangus">
+          <tr className="docs-row">
             <td className="left-column">wordTypeId</td>
-            <td>ID correlating to the reason why the word is offensive</td>
+            <td className="info-column">
+              ID correlating to the reason why the word is offensive
+            </td>
           </tr>
-          <tr className="rangus">
+          <tr className="docs-row">
             <td className="left-column">wordType</td>
-            <td>
+            <td className="info-column">
               Human readable text describing the reason why the word is
               offensive
             </td>
           </tr>
-          <tr className="rangus">
+          <tr className="docs-row">
             <td className="left-column">severity</td>
-            <td>
+            <td className="info-column">
               How bad the word is (in our opinion) on a scale of 1-10 where 10
               is the most severe
             </td>
           </tr>
-          <tr className="rangus">
+          <tr className="docs-row">
             <td className="left-column">occurances</td>
-            <td>
+            <td className="info-column">
               Number of times the offending word occurred in the string of text
               passed in
             </td>
@@ -100,33 +102,37 @@ const Docs = () => {
             <th>Name</th>
             <th>Description</th>
           </tr>
-          <tr className="rangus">
+          <tr className="docs-row">
             <td className="id-column">1</td>
             <td className="middle-column">Vulgarity</td>
-            <td>
+            <td className="info-column">
               The word is commonly viewed as crass or vulgar. This includes (but
               is not limited to) words like fuck, shit, and damn
             </td>
           </tr>
-          <tr className="rangus">
+          <tr className="docs-row">
             <td className="id-column">2</td>
             <td className="middle-column">Racial Slur</td>
-            <td>
+            <td className="info-column">
               The word is a racial slur. This includes (but is not limited to)
               words like kike, spic, and nigger
             </td>
           </tr>
-          <tr className="rangus">
+          <tr className="docs-row">
             <td className="id-column">3</td>
             <td className="middle-column">Sexism</td>
-            <td>
+            <td className="info-column">
               The word is commonly viewed as sexist. This includes (but is not
-              limited to) words like bitch and pussy
+              limited to) words like bitch and pussy. Note that this category
+              also includes words that are homophobic and transphobic.
             </td>
           </tr>
         </tbody>
       </table>
-      <p>Example return value (schema with sample data):</p>
+      <p>
+        Example return value if a user passes in the text "damn, she's a bitch
+        but her friend is an even bigger bitch!" (schema with sample data):
+      </p>
       <ReactJson
         enableClipboard={false}
         onEdit={false}
@@ -134,6 +140,13 @@ const Docs = () => {
         onAdd={false}
         src={obj}
       />
+      <div className="pad-25"></div>
+      <Note>
+        If two curse words have the same root word but are different, they will
+        be returned as seperate instances. For example, "bitch" and "bitching"
+        will be returned as items in the array even though they have the same
+        root word.
+      </Note>
       <h5>401</h5>
       <p>
         The API key passed in could not be found in the database. If you have

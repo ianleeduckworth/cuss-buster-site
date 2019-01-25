@@ -7,6 +7,7 @@ import About from './components/About';
 import Tutorial from './components/Tutorial';
 import MyAccount from './components/MyAccount';
 import Docs from './components/Docs';
+import Contact from './components/Contact';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
               <Route path="/tutorial" component={ Tutorial } />
               <Route path="/myaccount" component={ MyAccount } />
               <Route path="/docs" component={ Docs } />
+              <Route path="/contact" component={ Contact } />
               <div className="padding-bottom" />
             </div>
           </div>
