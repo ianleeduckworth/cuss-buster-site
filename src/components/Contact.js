@@ -15,6 +15,7 @@ const Contact = () => {
         <a
           href="https://github.com/ianleeduckworth/cuss-buster/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           github repository
         </a>

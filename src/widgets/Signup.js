@@ -101,7 +101,7 @@ class Signup extends Component {
     e.preventDefault();
     this.props.onUiBlock(true);
 
-    axios.post("http://localhost:51984/v1/webPage", this.state, {
+    axios.post("http://api.local.cussbuster.com/v1/webPage", this.state, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
@@ -113,7 +113,7 @@ class Signup extends Component {
   };
 
   isSignupButtonDisabled = () => {
-    //if the user hasn't entered a valie password, then return true right away
+    //if the user hasn't entered a valid password, then return true right away
     if (!this.state.password || this.state.password.length < 8) {
       return true;
     }

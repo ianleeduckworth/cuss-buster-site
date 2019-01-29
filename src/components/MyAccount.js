@@ -11,6 +11,7 @@ import AccountInfo from "../widgets/AccountInfo";
 import { connect } from "react-redux";
 import reduxActions from "../staticData/reduxActions";
 import { Link } from "react-router-dom";
+import StandardModal from "../widgets/StandardModal";
 
 class MyAccount extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class MyAccount extends Component {
     this.state = {
       blocking: false,
       accountInfo: accountInfo,
+      isModalOpen: false,
       signinInfo: {
         emailAddress: null,
         password: null
@@ -55,9 +57,16 @@ class MyAccount extends Component {
   };
 
   onSignOut = e => {
-    this.props.deleteAccountInfo();
-    localStorage.removeItem('accountInfo');
     this.setState({
+      isModalOpen: true
+    });
+  };
+
+  onConfirmedSignOut = (e) => {
+    this.props.deleteAccountInfo();
+    localStorage.removeItem("accountInfo");
+    this.setState({
+      isModalOpen: false,
       accountInfo: null,
       signinInfo: {
         emailAddress: null,
@@ -66,9 +75,23 @@ class MyAccount extends Component {
     });
   };
 
+  onModalCancel = (e) => {
+    this.setState({
+      isModalOpen: false
+    });
+  };
+
   render() {
     return (
       <div>
+        <StandardModal
+          isOpen={this.state.isModalOpen}
+          handleOk={this.onConfirmedSignOut}
+          handleCancel={this.onModalCancel}
+          titleText="Sign Out?"
+        >
+          Are you sure you want to sign out?
+        </StandardModal>
         <BlockUi tag="div" blocking={this.state.blocking}>
           <div hidden={!!this.state.accountInfo}>
             <h3>Sign in to your account</h3>
@@ -85,9 +108,7 @@ class MyAccount extends Component {
           <div hidden={!this.state.accountInfo}>
             <h3>My Account</h3>
             <AccountInfo accountInfo={this.state.accountInfo} />
-            <a onClick={this.onSignOut}>
-              Sign Out
-            </a>
+            <a onClick={this.onSignOut}>Sign Out</a>
           </div>
         </BlockUi>
         <NotificationContainer />

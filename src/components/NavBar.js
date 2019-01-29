@@ -35,7 +35,7 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
-        <img className="icon" src={require("../images/soap.png")} />
+        <img className="icon" src={require("../images/soap.png")} alt="logo" />
       </li>
       <li>
         <Link className="home-text" to="/">

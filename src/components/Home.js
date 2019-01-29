@@ -14,18 +14,23 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      blocking: false
+      blocking: false,
+      isModalOpen: false
     };
   }
 
-  onSignupSubmitFinish = response => {
+  onSignupSubmitFinish = e => {
     NotificationManager.success("Your account was created successfully");
   };
 
-  onSignupSubmitError = response => {
-    NotificationManager.error(
-      "Something went wrong while creating your account :("
-    );
+  onSignupSubmitError = e => {
+    if (e.response.status === 406) { //406 = unacceptable
+      NotificationManager.error(e.response.data); //this will be the exception message
+    } else {
+      NotificationManager.error(
+        "Something went wrong while creating your account :("
+      );
+    }
   };
 
   onUiBlock = e => {
@@ -41,19 +46,19 @@ class Home extends Component {
           <h3>What is Cussbuster?</h3>
           <p>
             Cussbuster is an API that can be called programatically. You pass it
-            a string of text and it will flag any inappropriate words. That's it! It
-            is fast, secure, and efficient while still being very easy to use.
-            Sign up for a free account below to get up and running immediately!
-            Please visit our <NavLink to="/tutorial">tutorial</NavLink> once you
-            have an account.
+            a string of text and it will flag any inappropriate words. That's
+            it! It is fast, secure, and efficient while still being very easy to
+            use. Sign up for a free account below to get up and running
+            immediately! Please visit our{" "}
+            <NavLink to="/tutorial">tutorial</NavLink> once you have an account.
           </p>
           <h3>Focus on what is important to you</h3>
           <p>
-            Tracking down every single bad word is an icky task.
-            It involves aggregating every awful word people say into your own
-            blacklist as well as keeping track of any new bad words as they are
-            created. Leave this unenviable task up to us. We make understanding
-            foul language our business so that you can focus on yours.
+            Tracking down every single bad word is an icky task. It involves
+            aggregating every awful word people say into your own blacklist as
+            well as keeping track of any new bad words as they are created.
+            Leave this unenviable task up to us. We make understanding foul
+            language our business so that you can focus on yours.
           </p>
           <Note symbol="💳" headerText="Hey!">
             Custom pricing and plans are available to meet your unique needs!

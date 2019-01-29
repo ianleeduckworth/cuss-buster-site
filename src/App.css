@@ -54,6 +54,10 @@ div.pad-25 {
   padding-bottom: 25px;
 }
 
+button.margin-10-right {
+  margin-right: 12px;
+}
+
 li.topnav {
   float: right;
 }
@@ -217,8 +221,26 @@ button.signup-button {
   transition: .3s;
 }
 
+button.modal-button {
+  border: 3px solid #749ce0;
+  border-radius: 16px;
+  background-color: #ffffff;
+  color: #010b13;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 100px;
+  height: 35px;
+  transition: .3s;
+}
+
+button.modal-button:hover:enabled{
+  background-color: #749ce0;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
 button.signup-button:hover:enabled {
-  /* box-shadow: 5px 5px 10px rgba(0,0,0,0.5); */
   background-color: #749ce0;
   color: #ffffff;
   transition: 0.3s;

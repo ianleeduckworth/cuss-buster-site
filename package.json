@@ -10,6 +10,7 @@
     "react-credit-card-input": "^1.0.15",
     "react-dom": "^16.5.2",
     "react-json-view": "^1.19.1",
+    "react-modal": "^3.8.1",
     "react-notifications": "^1.4.3",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
