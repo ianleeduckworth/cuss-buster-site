@@ -106,24 +106,21 @@ const Docs = () => {
             <td className="id-column">1</td>
             <td className="middle-column">Vulgarity</td>
             <td className="info-column">
-              The word is commonly viewed as crass or vulgar. This includes (but
-              is not limited to) words like fuck, shit, and damn
+              The word is commonly viewed as crass or vulgar.
             </td>
           </tr>
           <tr className="docs-row">
             <td className="id-column">2</td>
             <td className="middle-column">Racial Slur</td>
             <td className="info-column">
-              The word is a racial slur. This includes (but is not limited to)
-              words like kike, spic, and nigger
+              The word is a racial slur.
             </td>
           </tr>
           <tr className="docs-row">
             <td className="id-column">3</td>
             <td className="middle-column">Sexism</td>
             <td className="info-column">
-              The word is commonly viewed as sexist. This includes (but is not
-              limited to) words like bitch and pussy. Note that this category
+              The word is commonly viewed as sexist. Note that this category
               also includes words that are homophobic and transphobic.
             </td>
           </tr>
